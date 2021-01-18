@@ -10,3 +10,4 @@ let person = {
 
 console.log(person.firstname);
 console.log(person.fullname())
+console.log(person['dob']);
