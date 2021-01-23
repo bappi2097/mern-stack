@@ -1,0 +1,16 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "build-css": "npx tailwindcss-cli@latest build ./src/css/app.css -o ./dist/cssapp.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.2.3",
+    "postcss": "^8.2.4",
+    "tailwindcss": "^2.0.2"
+  }
+}
