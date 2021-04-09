@@ -1,21 +1,38 @@
-var list = [];
-document.querySelector("#task_form").addEventListener("submit", (e) => {
+var list = [];  // array for store tasks
+
+// define dom element
+
+let form = document.querySelector("#task_form");
+let taskInput = document.querySelector("#new_task");
+let filter = document.querySelector("#task_filter");
+let taskList = document.querySelector("#tasks");
+let clearBtn = document.querySelector("#clear_task_btn");
+
+// event listener for form submit
+
+form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if(document.querySelector("#new_task").value != ""){
-        list.push(document.querySelector("#new_task").value);
-        document.querySelector("#tasks").innerHTML += `<li>${document.querySelector("#new_task").value}</li>`;
-        document.querySelector("#new_task").value = '';
+    if(taskInput.value != ""){
+        list.push(taskInput.value);
+        taskList.innerHTML += `<li>${document.querySelector("#new_task").value}</li>`;
+        taskInput.value = '';
+    }else{
+        alert("Add a task!");
     }
 });
 
-document.querySelector("#clear_task_btn").addEventListener("click", () => {
+// event listener for clear list
+
+clearBtn.addEventListener("click", () => {
     list = [];
-    document.querySelector("#tasks").innerHTML = ``;
+    taskList.innerHTML = ``;
 });
 
-document.querySelector("#task_filter").addEventListener("input", () => {
-    document.querySelector("#tasks").innerHTML = ``;
-    list.filter(str => str.includes(document.querySelector("#task_filter").value)).forEach(element => {
-        document.querySelector("#tasks").innerHTML += `<li>${element}</li>`;
+// event listener for filter list
+
+filter.addEventListener("input", () => {
+    taskList.innerHTML = ``;
+    list.filter(str => str.includes(filter.value)).forEach(element => {
+        taskList.innerHTML += `<li>${element}</li>`;
     })
 });
